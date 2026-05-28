@@ -8639,11 +8639,91 @@ body {
 .mis-fuentes{
   front-family:"Montserrat", "Segoe UI", Tahoma, sans-serif;
 }
+/* --------------------------------------------------
+   DIFERENCIAS POR TARJETA (Bordes y Efectos)
+-------------------------------------------------- */
+
+/* Tarjeta 1: Entrenamientos (Efecto Neón / Resplandor Rojo) */
+.card-entrenamientos {
+  
+  background: transparent !important;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+   transition: transform 0.3s ease;
+}
+.card-entrenamientos:hover {
+  /* Al pasar el cursor, genera el resplandor rojo */
+box-shadow: 
+    0 0 15px rgba(13, 110, 253, 0.9),  
+    0 0 35px rgba(0, 191, 255, 0.7),   
+    0 0 60px rgba(173, 216, 230, 0.4) !important;
+
+  background-color: #132dae !important;
+  
+  /* El efecto de acercamiento que querías al principio */
+  transform: scale(1.05);
+ 
+}
+
+/* Tarjeta 2: Clases (Borde Azul Sólido Grueso) */
+.card-clases {
+   background: transparent !important;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.card-clases:hover {
+  box-shadow: 
+    0 0 15px rgba(13, 110, 253, 0.9),  
+    0 0 35px rgba(0, 191, 255, 0.7),   
+    0 0 60px rgba(173, 216, 230, 0.4) !important;
+
+  background-color: #132dae !important;
+  
+  /* El efecto de acercamiento que querías al principio */
+  transform: scale(1.05);
+}
+
+/* Tarjeta 3: Reservas (Borde Verde Sutil) */
+.card-reservas {
+  border: 1px solid #2ecc71;
+   transition: transform 0.3s ease;
+}
+.card-reservas:hover {
+  background-color: #242424; /* Un ligero cambio de fondo extra */
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.3);
+  transform: scale(1.05);
+}
+
+#seccion-canchas {
+  /* Tu imagen de fondo con la capa oscura overlay */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../img/fondofutbol.png') !important;
+  
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  
+  /* Un poco de espacio arriba y abajo para que luzca */
+  padding: 60px 0 !important; 
+}
+#seccion-acceder {
+  /* Tu imagen de fondo original con el overlay oscuro */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../img/fondodeportivo.jpeg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  
+  /* CLAVE: Fuerza al contenedor a ocupar TODO el alto de la pantalla actual */
+  min-height: 100vh !important; 
+  width: 100% !important;
+  
+  /* Quitamos paddings innecesarios ya que flexbox se encarga de centrar */
+  padding: 0 !important;
+  margin: 0 !important;
+}
 
 
 
-
-
+  /* ==========================================
+    TORNEOS - CARDS
+    ========================================== */
 
 
     /*Achica la imagen de la card de torneos*/
@@ -8723,9 +8803,12 @@ body {
         border-color: rgba(255, 255, 255, 0.2) !important;
     }
 
+    /* ==========================================
+    TORNEOS - CARDS
+    ========================================== */
 
 
-/* ==========================================
+  /* ==========================================
    LIGAS - CARDS
    ========================================== */
 
@@ -8749,6 +8832,10 @@ body {
         height: 200px;
         object-fit: cover;
     }
+  /* ==========================================
+    LIGAS - CARDS
+    ========================================== */
+
 
 /* ==========================================
    TABLA DE POSICIONES
@@ -8793,3 +8880,167 @@ body {
     .tabla-posiciones tbody tr:hover {
         background-color: #e3f2fd;
     }
+
+    /* ==========================================
+       DESCUENTOS - CARDS
+       ========================================== */
+
+    /* Contenedor de las cards en fila */
+    .descuentos-container {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    /* Cada card de descuento */
+    .descuento-card {
+        background-color: white;
+        border-radius: 12px;
+        overflow: hidden;
+        flex: 1;
+        padding: 30px;
+        text-align: center;
+        border: 1px solid #ddd;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .descuento-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+    /* Ícono de la card */
+    .descuento-icono {
+        font-size: 48px;
+        color: #1a73e8;
+        margin-bottom: 20px;
+    }
+
+    /* Título de la card */
+    .descuento-info h5 {
+        color: black;
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+
+    /* Descripción de la card */
+    .descuento-info p {
+        color: black;
+    }
+
+    /* Texto de condición en gris y más pequeño */
+    .descuento-condicion {
+        font-size: 12px;
+        color: #888 !important;
+        font-style: italic;
+        margin-top: 10px;
+    }
+
+    /* ==========================================
+    DESCUENTOS - CARDS
+    ========================================== */
+
+
+    /* ==========================================
+   FORMULARIO DE REGISTRO
+   ========================================== */
+
+/* Contenedor del formulario centrado */
+.form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Título del formulario */
+.form-container h1 {
+    color: black;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+/* Todos los inputs y selects */
+.form-container input {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #33;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* Efecto al hacer clic en un input */
+.form-container input:focus,
+.form-container select:focus {
+    border-color: #1a73e8;
+    background-color: #fff;
+}
+
+/* Botón enviar */
+.form-container button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover del botón */
+.form-container button[type="submit"]:hover {
+    background-color: #1558b0;
+}
+
+/* Link de iniciar sesión */
+.form-container p {
+    text-align: center;
+    margin-top: 16px;
+    color: #555;
+    font-size: 14px;
+}
+
+.form-container a {
+    color: #1a73e8;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+/* Sugerencias del autocompletado */
+.suggestions {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-height: 150px;
+    overflow-y: auto;
+    margin-top: -12px;
+    margin-bottom: 16px;
+}
+
+.sugerencia-item {
+    padding: 8px 14px;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.sugerencia-item:hover {
+    background-color: #1a73e8;
+    color: white;
+}

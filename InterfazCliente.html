@@ -54,7 +54,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
             <div class="navbar-nav py-0 pr-xl-5">
                 <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="Login.html" class="nav-item nav-link">Registrarse</a>
+                <a href="Registro.html" class="nav-item nav-link">Registrarse</a>
                 <a href="Acceder.html" class="nav-item nav-link">Acceder</a>
                 <a href="#SobreNosotros" class="nav-item nav-link">Sobre Nosotros</a>
                 <a href="#Contactanos" class="nav-item nav-link">Contactanos</a>
@@ -108,13 +108,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link gap-3 py-2.5 px-3">
+                            <a href="MisEntrenamientos.html" class="nav-link gap-3 py-2.5 px-3">
                                 <i class="bi bi-dpad"></i>
                                 Mis entrenamientos
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link gap-3 py-2.5 px-3">
+                            <a href="MisClases.html" class="nav-link gap-3 py-2.5 px-3">
                                 <i class="bi bi-people-fill"></i>
                                 Mis clases
                             </a>
@@ -153,29 +153,78 @@
             <div class="card p-4 shadow-sm tarjeta-celeste-club">
                 <form id="form-perfil">
                     <div class="mb-3">
-                      <label class="form-label font-weight-bold">Nombre del Club</label>
+                      <label class="form-label font-weight-bold">Nombre </label>
                         <div class="input-group">
-                            <input type="text" class="form-control editable-input" value="Gol Ahora" readonly>
+                            <input type="text" class="form-control editable-input input-Nombre" value="" readonly>
                             <span class="input-group-text edit-icon d-none">✏️</span>
                         </div>
                     </div>
-          
-
-                    <div class="mb-3">
-                      <label class="form-label">Capacidad Máxima</label>
+                    
+                    <div class="mb-4">
+                      <label class="form-label">Apellido</label>
                         <div class="input-group">
-                            <input type="number" class="form-control editable-input" value="120" readonly>
+                            <input type="text" class="form-control editable-input input-Apellido" value="" readonly>
                             <span class="input-group-text edit-icon d-none">✏️</span>
                         </div>
                     </div>
 
                     <div class="mb-4">
-                      <label class="form-label">Dirección / Ubicación</label>
+                      <label class="form-label">Dni</label>
                         <div class="input-group">
-                            <input type="text" class="form-control editable-input" value="Av. Principal 123" readonly>
+                            <input type="text" class="form-control editable-input input-Dni" value="" readonly>
                             <span class="input-group-text edit-icon d-none">✏️</span>
                         </div>
                     </div>
+
+                    <div class="mb-3">
+                      <label class="form-label font-weight-bold">Nacionalidad</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control editable-input input-Nacionalidad" value="" readonly>
+                            <span class="input-group-text edit-icon d-none">✏️</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label font-weight-bold">Genero</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control editable-input input-Genero" value="" readonly>
+                            <span class="input-group-text edit-icon d-none">✏️</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label font-weight-bold">Fecha de nacimiento</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control editable-input input-Fecha" value="" readonly>
+                            <span class="input-group-text edit-icon d-none">✏️</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label font-weight-bold">Telefono</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control editable-input input-Telefono" value="" readonly>
+                            <span class="input-group-text edit-icon d-none">✏️</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label font-weight-bold">Email</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control editable-input input-Email" value="" readonly>
+                            <span class="input-group-text edit-icon d-none">✏️</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label font-weight-bold">Direccion</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control editable-input input-Direccion" value="" readonly>
+                            <span class="input-group-text edit-icon d-none">✏️</span>
+                        </div>
+                    </div>
+
+                   
 
                     <div class="d-grid gap-2">
                         <button type="button" id="btn-editar" class="btn btn-outline-primary">Editar Datos</button>
@@ -207,6 +256,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/DatosPersonales.js"></script>
 </body>
 
 </html>
