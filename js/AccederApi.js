@@ -25,12 +25,7 @@ document.getElementById("login").addEventListener("submit", async (evento) => {
             throw new Error("El correo o la contraseña son incorrectos.");
         }
 
-        // Si la API responde OK, procesamos el JSON
-        const datos = await Respuesta.json();
-        
-        // Guardamos el token en la memoria local
-        localStorage.setItem("token", datos.token); 
-
+    
         alert("¡Ingreso exitoso!");
         
         // Redirigimos a la interfaz de usuario
