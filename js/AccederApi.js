@@ -1,10 +1,8 @@
 const API_LOGIN = "https://golahora-proyecto-is.onrender.com/api/login";
 
-
 document.getElementById("login").addEventListener("submit", async (evento) => {
-    evento.preventDefault(); // Frenamos la recarga automática
+    evento.preventDefault(); 
 
-    // Capturamos los datos en el momento exacto del clic
     const email = document.querySelector("#email").value;
     const password = document.querySelector("#password").value;
 
@@ -12,7 +10,8 @@ document.getElementById("login").addEventListener("submit", async (evento) => {
         const Respuesta = await fetch(API_LOGIN, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json" 
+                "Content-Type": "application/json",
+                "plataform":"web"
             },
             body: JSON.stringify({
                 email: email,
@@ -20,19 +19,27 @@ document.getElementById("login").addEventListener("submit", async (evento) => {
             })   
         });
 
-        // Si la API responde con un error (ej: status 400 o 401)
         if (!Respuesta.ok) {
             throw new Error("El correo o la contraseña son incorrectos.");
         }
-
+        
+        const datos = await Respuesta.json();
+       
     
         alert("¡Ingreso exitoso!");
         
-        // Redirigimos a la interfaz de usuario
-        window.location.href = "InterfazCliente.html";
+        
+        const nivelUsuario = datos.user_level;
+
+        // 3. Evaluamos con los valores exactos
+        if (nivelUsuario === "Administrador") {
+            window.location.href = "InterfazAdministrador.html";
+        } else if(nivelUsuario==="Cliente") {
+            
+            window.location.href = "InterfazCliente.html";
+        }
 
     } catch (error) {
-        // Si hay error de contraseña o de red, salta acá
         alert(error.message);
         console.error("Error detectado:", error);
     }
