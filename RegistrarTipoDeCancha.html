@@ -62,22 +62,138 @@
     </div>
 
     <!-- INICIO - ACÁ EL CONTENIDO REAL DE LA PAGINA VERCANCHAS -->
-     
+    
     <div class="container py-5">
 
-        <h1 class="text-uppercase text-center mb-5 text-white">Nuestros tipos de Canchas</h1>
+    <div class="row justify-content-center">
 
-        <!-- Las cards se van a cargar aca automáticamente desde el JS -->
-        <div id="lista-canchas" class="canchas-container">
-            
+        <div class="col-lg-8">
+
+            <div class="tipo-cancha-form">
+
+                <h2 class="text-center mb-4">
+                    Registrar Tipo de Cancha
+                </h2>
+
+                <p class="error escondido"></p>
+
+                <form id="tipo-cancha-formulario">
+
+                    <div class="form-group">
+                        <label>Tipo de Cancha</label>
+                        <input
+                            type="text"
+                            name="tipo_cancha"
+                            class="form-control"
+                            required>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Duración mínima (min)</label>
+                                <input
+                                    type="number"
+                                    name="duracion_min"
+                                    class="form-control"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Duración máxima (min)</label>
+                                <input
+                                    type="number"
+                                    name="duracion_max"
+                                    class="form-control"
+                                    required>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Ancho (m)</label>
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    name="ancho"
+                                    class="form-control"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Largo (m)</label>
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    name="largo"
+                                    class="form-control"
+                                    required>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Capacidad</label>
+                                <input
+                                    type="number"
+                                    name="capacidad"
+                                    class="form-control"
+                                    required>
+                            </div>
+                        </div>
+
+                    <div class="form-group" style="position: relative;">
+                        <label>Tipo de Superficie</label>
+                        
+                        <input 
+                            type="text" 
+                            id="id_superficie" 
+                            class="form-control" 
+                            placeholder="Escriba para buscar superficie..." 
+                            autocomplete="off" 
+                            required>
+                        
+                        <input type="hidden" name="id_superficie" id="id_superficie_hidden" required>
+                        
+                        <div id="id_superficie-suggestions" class="suggestions-box" style="display: none; position: absolute; width: 100%; background: white; border: 1px solid #ccc; z-index: 1000;"></div>
+                    </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Imagen</label>
+                        <input
+                            type="file"
+                            name="imagen"
+                            class="form-control-file">
+                    </div>
+                    
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn .btn-block btn-lg btn-primary align-center">Registrar tipo de cancha</button>
+                    </div>
+
+                </form>
+
+            </div>
+
         </div>
 
     </div>
 
-    <!-- CANCHAS -->
-    <h1 class="text-uppercase text-center mb-5 mt-5 text-white">Nuestras Canchas</h1>
-    <div id="lista-canchas-reales" class="canchas-container"></div>
-
+</div>
     <!-- FIN - ACÁ EL CONTENIDO REAL DE LA PAGINA TORNEOS -->
 
 
@@ -133,8 +249,7 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/canchas.js"></script>
-
+    <script src="js/tipocanchas.js"></script>
 
 </body>
 </html>

@@ -9121,3 +9121,121 @@ box-shadow:
 /* ==========================================
    CANCHAS - CARDS
    ========================================== */
+
+
+   /* ==========================
+   FORMULARIO REGISTRO TIPO DE CANCHA
+========================== */
+
+/* ==========================
+   FORMULARIO TIPO CANCHA
+========================== */
+
+.tipo-cancha-form {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 850px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+}
+
+.tipo-cancha-form h2 {
+    color: #222;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.tipo-cancha-form label {
+    font-weight: 500;
+    color: #333;
+}
+
+.tipo-cancha-form .form-group {
+    margin-bottom: 20px;
+}
+
+.tipo-cancha-form .form-control {
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+}
+
+.tipo-cancha-form .form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, .3);
+}
+
+.tipo-cancha-form .form-control-file {
+    padding: 5px 0;
+}
+
+.tipo-cancha-form .btn-success {
+    height: 55px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.error {
+    background: #dc3545;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.escondido {
+    display: none;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .tipo-cancha-form {
+        padding: 25px;
+    }
+
+    .tipo-cancha-form h2 {
+        font-size: 28px;
+    }
+
+}
+
+/* Contenedor principal de las sugerencias */
+#id_superficie-suggestions {
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    position: absolute;
+    width: 100%; /* Se adapta al ancho del input */
+    max-height: 200px;
+    overflow-y: auto; /* Agrega scroll si hay muchas opciones */
+    z-index: 999;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin-top: 2px;
+}
+
+/* Cada uno de los items/opciones dentro de la lista */
+#id_superficie-suggestions div {
+    padding: 10px;
+    cursor: pointer;
+    color: #333333; /* Forzamos color de texto oscuro para que no se vea blanco */
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+    background-color: #ffffff;
+}
+
+/* Efecto cuando el usuario pasa el mouse por encima de una opción */
+#id_superficie-suggestions div:hover {
+    background-color: #f1f1f1;
+    color: #000000;
+}
+
+   /* ==========================
+   FORMULARIO REGISTRO TIPO DE CANCHA
+========================== */
