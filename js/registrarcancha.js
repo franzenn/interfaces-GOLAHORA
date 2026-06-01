@@ -1,23 +1,13 @@
 const mensajeError = document.getElementsByClassName("error")[0];
 
 // ==========================================
-// LOGIN PARA OBTENER TOKEN (Y GUARDAR LA COOKIE)
+// FUNCIÓN PARA LEER COOKIES DEL NAVEGADOR
 // ==========================================
-async function obtenerToken() {
-    const res = await fetch("/api/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "plataform": "web"
-        },
-        credentials: "include", // ← Guarda la cookie de sesión nativa en el navegador
-        body: JSON.stringify({
-            email: "administrador@golahora.com",
-            password: "Unaj2026@golahora"
-        })
-    });
-    const data = await res.json();
-    return data.token;
+function obtenerCookie(nombre) {
+    const valor = `; ${document.cookie}`;
+    const partes = valor.split(`; ${nombre}=`);
+    if (partes.length === 2) return partes.pop().split(';').shift();
+    return null;
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -39,12 +29,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     // ==========================================
-    // AUTOCOMPLETADO DE TIPO DE CANCHA
+    // AUTOCOMPLETADO TIPO DE CANCHA
     // ==========================================
     tipoCanchaInput.addEventListener("input", () => {
         const query = tipoCanchaInput.value.toLowerCase();
         suggestionsBox.innerHTML = "";
-        tipoCanchaHidden.value = "";
+        tipoCanchaHidden.value = ""; 
 
         if (query.length === 0) {
             suggestionsBox.style.display = "none";
@@ -60,10 +50,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const div = document.createElement("div");
                 div.textContent = t.tipo_cancha;
                 div.classList.add("sugerencia-item");
-
+                
                 div.addEventListener("click", () => {
-                    tipoCanchaInput.value = t.tipo_cancha;
-                    tipoCanchaHidden.value = t.id;
+                    tipoCanchaInput.value = t.tipo_cancha; 
+                    tipoCanchaHidden.value = t.id;        
                     suggestionsBox.style.display = "none";
                 });
                 suggestionsBox.appendChild(div);
@@ -81,50 +71,68 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     // ==========================================
-    // ENVÍO DEL FORMULARIO
+    // ENVÍO DEL FORMULARIO 
     // ==========================================
     formulario.addEventListener("submit", async (e) => {
         e.preventDefault();
 
+        // Si el hidden quedó vacío, validamos si lo escrito coincide textualmente con un Tipo de Cancha válido
         if (!tipoCanchaHidden.value) {
-            mensajeError.textContent = "Por favor seleccioná un tipo de cancha válido de la lista.";
-            mensajeError.classList.remove("escondido");
-            return;
+            const textoEscrito = tipoCanchaInput.value.trim().toLowerCase();
+            const coincidenciaExacta = tiposCanchas.find(t => t.tipo_cancha.toLowerCase() === textoEscrito);
+            
+            if (coincidenciaExacta) {
+                tipoCanchaHidden.value = coincidenciaExacta.id;
+            } else {
+                mensajeError.textContent = "Por favor, seleccioná un Tipo de Cancha válido de la lista de sugerencias.";
+                mensajeError.classList.remove("escondido");
+                return;
+            }
         }
 
         try {
             mensajeError.classList.add("escondido");
 
-            // Primero obtenemos el token (Fuerza la creación/actualización de la cookie)
-            const token = await obtenerToken();
+            // 1. Extraemos el token directo de la sesión real de tu navegador
+            let token = obtenerCookie("X-Auth-Token");
 
-            // Armamos el objeto JSON tal como lo estructura tu Swagger
+            // Ajustamos el prefijo si la cookie pura no lo incluye
+            if (token && !token.startsWith("jwt=")) {
+                token = `jwt=${token}`;
+            }
+
+            // 2. Mapeamos el Request Body en JSON respetando la nomenclatura de tu Swagger (id_tipo_de_cancha)
             const datosCancha = {
                 nombre: document.getElementById("nombre").value.trim(),
                 tiempo_cancelacion: parseInt(document.getElementById("tiempo_cancelacion").value, 10),
                 precio_hora_reserva: parseFloat(document.getElementById("precio_hora_reserva").value),
-                id_tipo_de_cancha: parseInt(tipoCanchaHidden.value, 10) // ← Propiedad exacta de tu API
+                id_tipo_de_cancha: parseInt(tipoCanchaHidden.value, 10) 
             };
 
-            const response = await fetch("/api/canchas/agregar", {
+            const cabeceras = {
+                "Content-Type": "application/json",
+                "plataform": "web"
+            };
+
+            if (token) {
+                cabeceras["X-Auth-Token"] = token;
+            }
+
+            const res = await fetch("/api/canchas/agregar", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "plataform": "web"
-                    // ← Sin X-Auth-Token manual, igual que en tu script de tipos de cancha
-                },
-                credentials: "include", // ← Esto le dice al navegador que incluya las cookies automáticamente
-                body: JSON.stringify(datosCancha) // Envia los datos serializados en JSON puro
+                headers: cabeceras,
+                credentials: "include", // Envía automáticamente las cookies de sesión persistentes
+                body: JSON.stringify(datosCancha)
             });
 
-            if (response.ok) {
+            if (res.ok) {
                 alert("¡Cancha registrada con éxito!");
                 formulario.reset();
                 tipoCanchaInput.value = "";
                 tipoCanchaHidden.value = "";
             } else {
-                const errorData = await response.json().catch(() => ({}));
-                mensajeError.textContent = errorData.message || `Error: ${response.status}`;
+                const errorData = await res.json().catch(() => ({}));
+                mensajeError.textContent = errorData.message || `Error del servidor (${res.status}): No autorizado o datos inválidos.`;
                 mensajeError.classList.remove("escondido");
             }
 
