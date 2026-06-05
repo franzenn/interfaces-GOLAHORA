@@ -87,18 +87,15 @@
 
 
 
+<div class="container mt-4" style="background: linear-gradient(to bottom,#004e92, #000428); min-height: 100vh;">
+    <div>
+        <h1 class="text-white mis-fuentes">MIS RESERVAS</h1>
+    </div>
 
-   <!--Mis reservas-->
-<div class="container mt-4"style="background: linear-gradient(to bottom,#004e92, #000428); min-height: 100vh;">
-        <div>
-            <h1 class="text-white mis-fuentes">MIS RESERVAS</h1>
-        </div>
-    
     <div class="row">
         
         <div class="col-12 col-md-4 mb-4">
-            <div class="card  card-reservas overflow-hidden border-0 shadow text-center" style="border-radius: 20px;">
-                
+            <div class="card card-reservas overflow-hidden border-0 shadow text-center" style="border-radius: 20px;">
                 <img src="img/Futbol11.jpeg" class="card-img-top w-100" style="height: 180px; object-fit: cover;" alt="imagen cancha">
                 
                 <div class="card-body bg-white p-3">
@@ -108,15 +105,30 @@
                     <h4 class="fs-6 text-muted mb-2">Horario: 18hs</h4>
                     <h4 class="fs-6 text-muted mb-3">Tiempo: 3hs</h4>
                     
-                    <div class="text-end">
-                        <button class="btn btn-warning text-dark fw-bold px-4 rounded-pill">Ver detalles</button>
+                    <div class="collapse" id="detallesCancha1">
+                        <div class="p-2 my-2 rounded-3 text-start border-top">
+                            <p class="mb-1 fs-6 text-dark"><strong>Capacidad:</strong> 11 jugadores</p>
+                            <p class="mb-1 fs-6 text-dark"><strong>Superficie:</strong> Césped sintético (artificial)</p>
+                            <p class="mb-1 fs-6 text-dark"><strong>Estado del pago:</strong> <span class="badge bg-success">Pagado</span></p>
+                            <p class="mb-2 fs-6 text-dark"><strong>Precio Total:</strong> $15.000</p>
+                            <button type="button" class="btn btn-outline-primary btn-sm w-100">Modificar reserva</button>
+                        </div>
+                    </div>
+
+                    <div class="text-end mt-2">
+                        <button class="btn btn-warning text-dark fw-bold px-4 rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#detallesCancha1" aria-expanded="false" aria-controls="detallesCancha1">
+                            Ver detalles
+                        </button>
+                        <button type="button" class="btn btn-warning text-dark fw-bold px-4 rounded-pill" data-bs-toggle="modal" data-bs-target="#modalCancelar">
+                            Cancelar
+                        </button>
                     </div>
                 </div>
             </div> 
         </div>
+
         <div class="col-12 col-md-4 mb-4">
             <div class="card card-reservas overflow-hidden border-0 shadow text-center" style="border-radius: 20px;">
-                
                 <img src="img/Futbol5.jpeg" class="card-img-top w-100" style="height: 180px; object-fit: cover;" alt="imagen cancha">
                 
                 <div class="card-body bg-white p-3">
@@ -126,15 +138,30 @@
                     <h4 class="fs-6 text-muted mb-2">Horario: 20hs</h4>
                     <h4 class="fs-6 text-muted mb-3">Tiempo: 2hs</h4>
                     
-                    <div class="text-end">
-                        <button class="btn btn-warning text-dark fw-bold px-4 rounded-pill">Ver detalles</button>
+                    <div class="collapse" id="detallesCancha2">
+                        <div class="p-2 my-2 rounded-3 text-start border-top">
+                            <p class="mb-1 fs-6 text-dark"><strong>Capacidad:</strong> 5 jugadores</p>
+                            <p class="mb-1 fs-6 text-dark"><strong>Superficie:</strong> Césped sintético (artificial)</p>
+                            <p class="mb-1 fs-6 text-dark"><strong>Estado del pago:</strong> <span class="badge bg-success">Pagado</span></p>
+                            <p class="mb-2 fs-6 text-dark"><strong>Precio Total:</strong> $10.000</p>
+                            <button type="button" class="btn btn-outline-primary btn-sm w-100">Modificar reserva</button>
+                        </div>
+                    </div>
+
+                    <div class="text-end mt-2">
+                        <button class="btn btn-warning text-dark fw-bold px-4 rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#detallesCancha2" aria-expanded="false" aria-controls="detallesCancha2">
+                            Ver detalles
+                        </button>
+                        <button type="button" class="btn btn-warning text-dark fw-bold px-4 rounded-pill" data-bs-toggle="modal" data-bs-target="#modalCancelar">
+                            Cancelar
+                        </button>
                     </div>
                 </div>
             </div> 
         </div>
+
         <div class="col-12 col-md-4 mb-4">
-            <div class="card  card-reservas overflow-hidden border-0 shadow text-center" style="border-radius: 20px;">
-                
+            <div class="card card-reservas overflow-hidden border-0 shadow text-center" style="border-radius: 20px;">
                 <img src="img/Futbol7.jpeg" class="card-img-top w-100" style="height: 180px; object-fit: cover;" alt="imagen cancha">
                 
                 <div class="card-body bg-white p-3">
@@ -143,17 +170,53 @@
                     <h4 class="fs-6 text-muted mb-2">Fecha: 20/06/2026</h4>
                     <h4 class="fs-6 text-muted mb-2">Horario: 10hs</h4>
                     <h4 class="fs-6 text-muted mb-3">Tiempo: 2hs</h4>
+
+                    <div class="collapse" id="detallesCancha3">
+                        <div class="p-2 my-2 rounded-3 text-start border-top">
+                            <p class="mb-1 fs-6 text-dark"><strong>Capacidad:</strong> 7 jugadores</p>
+                            <p class="mb-1 fs-6 text-dark"><strong>Superficie:</strong> Césped sintético (artificial)</p>
+                            <p class="mb-1 fs-6 text-dark"><strong>Estado del pago:</strong> <span class="badge bg-success">Pagado</span></p>
+                            <p class="mb-2 fs-6 text-dark"><strong>Precio Total:</strong> $12.000</p>
+                            <button type="button" class="btn btn-outline-primary btn-sm w-100">Modificar reserva</button>
+                        </div>
+                    </div>
                     
-                    <div class="text-end">
-                        <button class="btn btn-warning text-dark fw-bold px-4 rounded-pill">Ver detalles</button>
+                    <div class="text-end mt-2">
+                        <button class="btn btn-warning text-dark fw-bold px-4 rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#detallesCancha3" aria-expanded="false" aria-controls="detallesCancha3">
+                            Ver detalles
+                        </button>
+                        <button type="button" class="btn btn-warning text-dark fw-bold px-4 rounded-pill" data-bs-toggle="modal" data-bs-target="#modalCancelar">
+                            Cancelar
+                        </button>
                     </div>
                 </div>
             </div> 
         </div>
+
     </div>
-       
 </div>
 
+<div class="modal fade" id="modalCancelar" tabindex="-1" aria-labelledby="modalCancelarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered overflow-hidden" style="border-radius: 20px;">
+        <div class="modal-content" style="border-radius: 20px; overflow: hidden;">
+            
+            <div class="modal-header " style="background-color: #004e92;">
+                <h5 class="modal-title fw-bold w-100 text-center text-white" id="modalCancelarLabel">⚠️ Advertencia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body text-center text-dark fs-5">
+                ¿Está seguro de que desea cancelar la reserva?
+            </div>
+            
+            <div class="modal-footer d-flex justify-content-center">
+                <button type="button" class="btn btn-secondary px-4 rounded-pill" data-bs-dismiss="modal">No, regresar</button>
+                <a href="InterfazCliente.html" class="btn btn-primary text-white fw-bold px-4 rounded-pill">Sí, cancelar</a>
+            </div>
 
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
